@@ -22,24 +22,28 @@ const Table = () => {
         <div class="col-12">
           <div class="card mb-4">
             <div class="card-header pb-0">
-              <h6>Authors table</h6>
+              <h4>All Jewellery table</h4>
             </div>
             <div class="card-body px-0 pt-0 pb-2">
               <div class="table-responsive p-0">
                 <table class="table align-items-center mb-0">
                   <thead>
                     <tr>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Author</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Function</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Employed</th>
-                      <th class="text-secondary opacity-7"></th>
+                      <th class="text-uppercase text-secondary  font-weight-bolder opacity-7">s.N</th>
+                      <th class="text-uppercase text-secondary  font-weight-bolder opacity-7">Jewellery Name</th>
+                      <th class="text-uppercase text-secondary  font-weight-bolder opacity-7 ps-2">Price</th>
+                      <th class="text-center text-uppercase text-secondary  font-weight-bolder opacity-7">Quantity</th>
+                      <th class="text-center text-uppercase text-secondary  font-weight-bolder opacity-7">Added</th>
+                      <th class="text-secondary text-xxs opacity-7"></th>
                     </tr>
                   </thead>
                   <tbody>
 {Array.isArray(data)&& data.length>0? (
-    data.map((jewellery, id)=>(
+    data.map((jewellery, index, id)=>(
 <tr>
+  <td>
+    <h6>{index + 1}</h6>
+  </td>
  <td>
    <div class="d-flex px-2 py-1">
      <div>
@@ -47,24 +51,35 @@ const Table = () => {
      </div>
      <div class="d-flex flex-column justify-content-center">
        <h6 class="mb-0 text-sm" key={id}>{jewellery.jewelleryname}</h6>
-       <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
+       <p class="text-xs text-secondary mb-0">{jewellery.description}</p>
      </div>
    </div>
  </td>
  <td>
-   <p class="text-xs font-weight-bold mb-0">Manager</p>
-   <p class="text-xs text-secondary mb-0">Organization</p>
+   <h5 class=" font-weight-bold mb-0">₹ {jewellery.price}</h5>
+   {/* <p class="text-xs text-secondary mb-0">Organization</p> */}
  </td>
+
  <td class="align-middle text-center text-sm">
-   <span class="badge badge-sm bg-gradient-success">Online</span>
+ <h6 class="mb-0 text-sm" >{jewellery.quantity}</h6>
  </td>
+ {/* <td class="align-middle text-center text-sm">
+   <span class="badge badge-sm bg-gradient-success">Online</span>
+ </td> */}
  <td class="align-middle text-center">
-   <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
+   <span class="text-secondary text-xs font-weight-bold">{new Date (jewellery.date).toLocaleDateString('en-US',{
+    year:"numeric",
+    month:"short",
+    day:"2-digit",
+   })}</span>
  </td>
  <td class="align-middle">
    <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
      Edit
    </a>
+ </td>
+ <td class="align-middle text-center text-sm">
+   <span class="badge badge-sm bg-gradient-danger"><a href="" className='text-white'>Delete</a> </span>
  </td>
 </tr>
     )) 
@@ -449,30 +464,30 @@ const Table = () => {
     </div>
 
 
-    <footer class="footer pt-3  ">
+    <footer class="footer pt-3  mb-3">
         <div class="container-fluid">
           <div class="row align-items-center justify-content-lg-between">
             <div class="col-lg-6 mb-lg-0 mb-4">
               <div class="copyright text-center text-sm text-muted text-lg-start">
                 © ,
                 made with <i class="fa fa-heart"></i> by
-                <a href="https://www.creative-tim.com" class="font-weight-bold" target="_blank">Creative Tim</a>
-                for a better web.
+                <a href="https://rahultak.com/" class="font-weight-bold" target="_blank"> Rahul tak </a>
+                Dev.
               </div>
             </div>
             <div class="col-lg-6">
               <ul class="nav nav-footer justify-content-center justify-content-lg-end">
                 <li class="nav-item">
-                  <a href="https://www.creative-tim.com" class="nav-link text-muted" target="_blank">Creative Tim</a>
+                  <a href="https://rahultak.com/" class="nav-link text-muted" target="_blank">Creative Tim</a>
                 </li>
                 <li class="nav-item">
-                  <a href="https://www.creative-tim.com/presentation" class="nav-link text-muted" target="_blank">About Us</a>
+                  <a href="https://rahultak.com/" class="nav-link text-muted" target="_blank">About Us</a>
                 </li>
                 <li class="nav-item">
-                  <a href="https://www.creative-tim.com/blog" class="nav-link text-muted" target="_blank">Blog</a>
+                  <a href="https://rahultak.com/" class="nav-link text-muted" target="_blank">Blog</a>
                 </li>
                 <li class="nav-item">
-                  <a href="https://www.creative-tim.com/license" class="nav-link pe-0 text-muted" target="_blank">License</a>
+                  <a href="https://rahultak.com/" class="nav-link pe-0 text-muted" target="_blank">License</a>
                 </li>
               </ul>
             </div>

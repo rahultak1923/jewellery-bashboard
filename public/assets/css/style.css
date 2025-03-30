@@ -34,7 +34,7 @@ body{
   .search-container {
     display: flex;
     align-items: center;
-    margin-right: auto;
+    /* margin-right: auto; */
   }
   
   .input-group-text {

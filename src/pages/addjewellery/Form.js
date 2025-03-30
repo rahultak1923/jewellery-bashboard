@@ -1,10 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { CreateJewellery } from '../../api/jewelleryapi';
 
 const Form = () => {
+  const [jewelleryname, setJwelleryname]= useState("");
+  const [description, setDescription]= useState("");
+  const [price, setPrice]= useState("");
+  const [quantity, setquantity]= useState("");
+
+
+  const handleSubmit = async (evnet)=>{
+    evnet.preventDefault();
+    const formData ={
+      jewelleryname: jewelleryname, description:description,price:price, quantity:quantity
+    };
+    await CreateJewellery(formData);
+    
+  }
   return (
     <div class="container-fluid py-4">
       <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-12">
           <div class="card">
             <div class="card-header pb-0">
               <div class="d-flex align-items-center">
@@ -14,11 +29,13 @@ const Form = () => {
             </div>
             <div class="card-body">
               <p class="text-uppercase text-sm">Jewellery Information</p>
+              <form onSubmit={handleSubmit}>
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="example-text-input" class="form-control-label">Jewelleryname</label>
-                    <input class="form-control" type="text" value="lucky.jesse"/>
+                    <input class="form-control" name='jewelleryname' type="text" value={jewelleryname} 
+                    onChange={(event)=>setJwelleryname(event.target.value)}/>
                   </div>
                 </div>
                 <div class="col-md-6">
@@ -30,22 +47,24 @@ const Form = () => {
                 <div class="col-md-12">
                   <div class="form-group">
                     <label for="example-text-input" class="form-control-label">Description</label>
-                    <input class="form-control" type="text" value="Jesse"/>
+                    <input class="form-control" id='description' name='description'  type="text" value={description} onChange={(event)=> setDescription(event.target.value)}/>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="example-text-input" class="form-control-label">Price</label>
-                    <input class="form-control" type="text" value="Lucky"/>
+                    <input class="form-control" name='price' type="number" value={price} onChange={(event)=> setPrice(event.target.value)}/>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="example-text-input" class="form-control-label">Quantity</label>
-                    <input class="form-control" type="text" value="Lucky"/>
+                    <input class="form-control" type="text" value={quantity} onChange={(event)=> setquantity(event.target.value)}/>
                   </div>
                 </div>
               </div>
+              <button class="btn btn-success btn-sm ms-auto">Create Jewellery</button>
+              </form>
               {/* <hr class="horizontal dark"/>
               <p class="text-uppercase text-sm">Contact Information</p>
               <div class="row">
@@ -75,7 +94,7 @@ const Form = () => {
                 </div>
               </div> */}
               <hr class="horizontal dark"/>
-              <p class="text-uppercase text-sm">About me</p>
+              {/* <p class="text-uppercase text-sm">About me</p>
               <div class="row">
                 <div class="col-md-12">
                   <div class="form-group">
@@ -83,11 +102,11 @@ const Form = () => {
                     <input class="form-control" type="text" value="A beautiful Dashboard for Bootstrap 5. It is Free and Open Source."/>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
-        <div class="col-md-4">
+        {/* <div class="col-md-4">
           <div class="card card-profile">
             <img src="../assets/img/bg-profile.jpg" alt="Image placeholder" class="card-img-top"/>
             <div class="row justify-content-center">
@@ -142,7 +161,7 @@ const Form = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     
     </div>

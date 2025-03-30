@@ -1,6 +1,18 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { JewelleryData } from '../api/jewelleryapi'
 
 const Main = () => {
+  const [data, setData]= useState([])
+
+  useEffect(()=>{
+    const fetchData = async()=>{
+      const result = await JewelleryData();
+      setData(result.jewellery || [])
+
+    }
+    fetchData();
+
+  },[])
   return (
 <>
 
@@ -15,7 +27,7 @@ const Main = () => {
       <h6 class="dashboard-title">Dashboard</h6>
     </nav>
     
-    <div class="collapse navbar-collapse" id="navbar">
+    <div class="collapse navbar-collapse justify-content-end" id="navbar">
       <div class="search-container">
         <div class="input-group">
           <span class="input-group-text"><i class="fas fa-search"></i></span>
@@ -23,7 +35,7 @@ const Main = () => {
         </div>
       </div>
 
-      <ul class="navbar-nav navbar-right">
+      {/* <ul class="navbar-nav navbar-right">
         <li class="nav-item">
           <a href="javascript:;" class="nav-link sign-in-link">
             <i class="fa fa-user"></i> <span class="d-sm-inline d-none">Sign In</span>
@@ -53,7 +65,7 @@ const Main = () => {
             <li><a class="dropdown-item" href="#">Payment successfully completed</a></li>
           </ul>
         </li>
-      </ul>
+      </ul> */}
     </div>
   </div>
 </nav>
@@ -65,11 +77,11 @@ const Main = () => {
         <div class="row">
           <div class="col-8">
             <div class="numbers">
-              <p class="card-title">Today's Money</p>
-              <h5 class="card-value">$53,000</h5>
-              <p class="card-status">
+              <p class="card-title">Total's Jewellery</p>
+              <h5 class="card-value">{data.length}</h5>
+              {/* <p class="card-status">
                 <span class="text-success">+55%</span> since yesterday
-              </p>
+              </p> */}
             </div>
           </div>
           <div class="col-4 text-end">
@@ -90,9 +102,9 @@ const Main = () => {
             <div class="numbers">
               <p class="card-title">Today's Users</p>
               <h5 class="card-value">2,300</h5>
-              <p class="card-status">
+              {/* <p class="card-status">
                 <span class="text-success">+3%</span> since last week
-              </p>
+              </p> */}
             </div>
           </div>
           <div class="col-4 text-end">
@@ -113,9 +125,9 @@ const Main = () => {
             <div class="numbers">
               <p class="card-title">New Clients</p>
               <h5 class="card-value">+3,462</h5>
-              <p class="card-status">
+              {/* <p class="card-status">
                 <span class="text-danger">-2%</span> since last quarter
-              </p>
+              </p> */}
             </div>
           </div>
           <div class="col-4 text-end">
@@ -136,9 +148,9 @@ const Main = () => {
             <div class="numbers">
               <p class="card-title">Sales</p>
               <h5 class="card-value">$103,430</h5>
-              <p class="card-status">
+              {/* <p class="card-status">
                 <span class="text-success">+5%</span> than last month
-              </p>
+              </p> */}
             </div>
           </div>
           <div class="col-4 text-end">
