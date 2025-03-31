@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { JewelleryData } from '../api/jewelleryapi'
+import { DeleteJewellery, JewelleryData } from '../api/jewelleryapi'
 
 const Table = () => {
     const [data, setData]=useState([])
@@ -13,6 +13,19 @@ const Table = () => {
         }
         fetchData();
     },[])
+
+    const handleDelete = async(jewelleryId)=>{
+      try{
+        const result = await DeleteJewellery(jewelleryId);
+        console.log("jewellery  Deleted",result);
+        alert("Jewellery Deleted Successfully")
+
+        setData((prevData)=> prevData.filter((jewellery)=>jewellery._id !== jewelleryId))
+      } catch(error){
+        console.error("Error Deleting jewellery:", error);
+        alert("Failed to delete jewellery.");
+      }
+      }
 
   return (
  <main class="main-content position-relative border-radius-lg " style={{marginLeft: "17.125rem"}}>
@@ -79,7 +92,7 @@ const Table = () => {
    </a>
  </td>
  <td class="align-middle text-center text-sm">
-   <span class="badge badge-sm bg-gradient-danger"><a href="" className='text-white'>Delete</a> </span>
+   <span class="badge badge-sm bg-gradient-danger" onClick={()=> handleDelete(jewellery._id)}><a href="" className='text-white'>Delete</a> </span>
  </td>
 </tr>
     )) 
