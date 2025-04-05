@@ -5,7 +5,7 @@ const Form = () => {
   const [jewelleryname, setJwelleryname]= useState("");
   const [description, setDescription]= useState("");
   const [price, setPrice]= useState("");
-  const [quantity, setquantity]= useState("");
+  const [quantity, setQuantity]= useState("");
 
 
   const handleSubmit = async (evnet)=>{
@@ -15,6 +15,10 @@ const Form = () => {
     };
     await CreateJewellery(formData);
     
+    setJwelleryname("");
+    setDescription("");
+    setPrice("");
+    setQuantity("");
   }
   return (
     <div class="container-fluid py-4">
@@ -59,7 +63,7 @@ const Form = () => {
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="example-text-input" class="form-control-label">Quantity</label>
-                    <input class="form-control" type="text" value={quantity} onChange={(event)=> setquantity(event.target.value)}/>
+                    <input class="form-control" type="text" value={quantity} onChange={(event)=> setQuantity(event.target.value)}/>
                   </div>
                 </div>
               </div>

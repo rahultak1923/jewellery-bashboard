@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { DeleteJewellery, JewelleryData } from '../api/jewelleryapi'
+import Editjewellery from '../pages/editjewellery/Editjewellery'
 
 const Table = () => {
     const [data, setData]=useState([])
@@ -16,6 +17,9 @@ const Table = () => {
 
     const handleDelete = async(jewelleryId)=>{
       try{
+        const isConfirmed = window.confirm("are you sure")
+        if(!isConfirmed) return;
+
         const result = await DeleteJewellery(jewelleryId);
         console.log("jewellery  Deleted",result);
         alert("Jewellery Deleted Successfully")
@@ -86,11 +90,15 @@ const Table = () => {
     day:"2-digit",
    })}</span>
  </td>
+
  <td class="align-middle">
-   <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+   {/* <a href="/editjewellery" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user" >
      Edit
-   </a>
+   </a> */}
+   
+   <Editjewellery jewelleryId={jewellery._id} JewelleryData={jewellery}/>
  </td>
+
  <td class="align-middle text-center text-sm">
    <span class="badge badge-sm bg-gradient-danger" onClick={()=> handleDelete(jewellery._id)}><a href="" className='text-white'>Delete</a> </span>
  </td>

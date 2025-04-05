@@ -3,6 +3,7 @@ import Dashboard from './pages/Dashboard';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import Addjewellery from './pages/addjewellery/Addjewellery';
+import Editjewellery from './pages/editjewellery/Editjewellery';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/addjewellery' element={<Addjewellery/>}/>
+        <Route path='/editjewellery' element={<Editjewellery/>}/>
       </Routes>
       </BrowserRouter>
     </div>
