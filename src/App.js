@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import Addjewellery from './pages/addjewellery/Addjewellery';
 import Editjewellery from './pages/editjewellery/Editjewellery';
+import Hero from './pages/herosection/Hero';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path='/' element={<Home/>}/>
         <Route path='/addjewellery' element={<Addjewellery/>}/>
         <Route path='/editjewellery' element={<Editjewellery/>}/>
+        <Route path='/herosection' element={<Hero/>}/>
       </Routes>
       </BrowserRouter>
     </div>
