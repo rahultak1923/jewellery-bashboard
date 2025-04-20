@@ -64,7 +64,7 @@ const Table = () => {
  <td>
    <div class="d-flex px-2 py-1">
      <div>
-       <img src="../assets/img/team-2.jpg" class="avatar avatar-sm me-3" alt="user1"/>
+       <img src={jewellery.image ? `/asseets/${jewellery.image}`:"https://media.istockphoto.com/id/1403500817/photo/the-craggies-in-the-blue-ridge-mountains.jpg"} class="avatar avatar-sm me-3" alt="user1"/>
      </div>
      <div class="d-flex flex-column justify-content-center">
        <h6 class="mb-0 text-sm" key={id}>{jewellery.jewelleryname}</h6>
@@ -257,7 +257,7 @@ const Table = () => {
           </div>
         </div>
       </div>
-      <div class="row">
+      {/* <div class="row">
         <div class="col-12">
           <div class="card mb-4">
             <div class="card-header pb-0">
@@ -480,7 +480,7 @@ const Table = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
      
     </div>
 

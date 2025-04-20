@@ -6,12 +6,13 @@ const Form = () => {
   const [description, setDescription]= useState("");
   const [price, setPrice]= useState("");
   const [quantity, setQuantity]= useState("");
+  const [image, setImage]= useState("");
 
 
   const handleSubmit = async (evnet)=>{
     evnet.preventDefault();
     const formData ={
-      jewelleryname: jewelleryname, description:description,price:price, quantity:quantity
+      jewelleryname: jewelleryname, description:description,price:price, quantity:quantity, image:image
     };
     await CreateJewellery(formData);
     
@@ -19,6 +20,7 @@ const Form = () => {
     setDescription("");
     setPrice("");
     setQuantity("");
+    setImage("");
   }
   return (
     <div class="container-fluid py-4">
@@ -39,13 +41,13 @@ const Form = () => {
                   <div class="form-group">
                     <label for="example-text-input" class="form-control-label">Jewelleryname</label>
                     <input class="form-control" name='jewelleryname' type="text" value={jewelleryname} 
-                    onChange={(event)=>setJwelleryname(event.target.value)}/>
+                    onChange={(event)=>setJwelleryname(event.target.files)}/>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label for="example-text-input" class="form-control-label">Extra  Name</label>
-                    <input class="form-control" type="email" value="jesse@example.com"/>
+                    <label for="example-text-input" class="form-control-label">Jewellery Image</label>
+                    <input class="form-control" type="file"  onChange={(event)=> setImage(event.target.value)}/>
                   </div>
                 </div>
                 <div class="col-md-12">

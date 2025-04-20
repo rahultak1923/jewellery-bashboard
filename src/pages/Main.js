@@ -94,7 +94,7 @@ const Main = () => {
     </div>
   </div>
 
-  <div class="col-xl-3 col-sm-6">
+  {/* <div class="col-xl-3 col-sm-6">
     <div class="card custom-card">
       <div class="card-body">
         <div class="row">
@@ -102,9 +102,7 @@ const Main = () => {
             <div class="numbers">
               <p class="card-title">Today's Users</p>
               <h5 class="card-value">2,300</h5>
-              {/* <p class="card-status">
-                <span class="text-success">+3%</span> since last week
-              </p> */}
+              
             </div>
           </div>
           <div class="col-4 text-end">
@@ -125,9 +123,7 @@ const Main = () => {
             <div class="numbers">
               <p class="card-title">New Clients</p>
               <h5 class="card-value">+3,462</h5>
-              {/* <p class="card-status">
-                <span class="text-danger">-2%</span> since last quarter
-              </p> */}
+              
             </div>
           </div>
           <div class="col-4 text-end">
@@ -148,9 +144,7 @@ const Main = () => {
             <div class="numbers">
               <p class="card-title">Sales</p>
               <h5 class="card-value">$103,430</h5>
-              {/* <p class="card-status">
-                <span class="text-success">+5%</span> than last month
-              </p> */}
+              
             </div>
           </div>
           <div class="col-4 text-end">
@@ -161,7 +155,7 @@ const Main = () => {
         </div>
       </div>
     </div>
-  </div>
+  </div> */}
 </div>
 
 {/* <div class="row mt-4">
