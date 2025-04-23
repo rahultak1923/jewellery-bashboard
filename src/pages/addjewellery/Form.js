@@ -8,10 +8,10 @@ const Form = () => {
     const [quantity, setQuantity] = useState('');
     const [imageFile, setImageFile] = useState(null);
 
-    const handleImageChange = (event) => {
-        setImageFile(event.target.files[0]);
-        console.log("imageFile in handleImageChange:", event.target.files[0]);
-    };
+    // const handleImageChange = (event) => {
+    //     setImageFile(event.target.files[0]);
+    //     console.log("imageFile in handleImageChange:", event.target.files[0]);
+    // };
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -25,10 +25,10 @@ const Form = () => {
             formData.append('image', imageFile);
         }
 
-        console.log("FormData contents:");
-        for (const [key, value] of formData.entries()) {
-            console.log(`${key}: ${value}`);
-        }
+        // console.log("FormData contents:");
+        // for (const [key, value] of formData.entries()) {
+        //     console.log(`${key}: ${value}`);
+        // }
 
         try {
             await CreateJewellery(formData);
@@ -81,7 +81,7 @@ const Form = () => {
                                             <input
                                                 className="form-control"
                                                 type="file"
-                                                onChange={handleImageChange}
+                                                onChange={(event)=>setImageFile(event.target.files[0])}
                                             />
                                         </div>
                                     </div>
